@@ -1,0 +1,102 @@
+﻿<Window x:Class="Planner.UI.AddTask"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Planner.UI"
+        mc:Ignorable="d"
+        Title="AddTask" Height="488" Width="240"
+        FontFamily="FontAwesome-Regular">
+    <Grid Grid.Row="1" Background="#FFF0F0F0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"
+                  Background="#FF212121">
+            <Grid Width="200"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Margin="10">
+                <TextBlock Text="Add/Edit task"
+                           TextAlignment="Center"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center" 
+                               Foreground="White"
+                               FontFamily="Font Awesome 5 Free Regular" 
+                               FontSize="30" Margin="10,0,0,0" Width="190">
+                </TextBlock>
+            </Grid>
+        </Grid>
+        <StackPanel Grid.Row="1" Margin="0,0,0,-40">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label x:Name="NameLabel"
+                           Grid.Row="0"
+                           Content="Name" 
+                           AutomationProperties.IsColumnHeader="True" 
+                           FontFamily="Font Awesome 5 Free Regular" 
+                           FontWeight="Bold" Foreground="#FF212121" />
+                <TextBox x:Name="NameTextBox"
+                         Grid.Row="1" 
+                         CaretBrush="#FF212121" 
+                         SelectionBrush="#FF212121" 
+                         BorderBrush="#FF212121"
+                         Height="25"
+                         VerticalContentAlignment="Center">
+                </TextBox>
+            </Grid>
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label x:Name="PriorityLabel"
+                           Grid.Row="0"
+                           Content="Priority"
+                           Foreground="#FF212121" FontFamily="Font Awesome 5 Free Regular" FontWeight="Bold">
+                </Label>
+                <ListBox x:Name="PriorityListBox"
+                             Grid.Row="1"
+                             Foreground="#FF212121">
+                </ListBox>
+            </Grid>
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label x:Name="DueDateLabel"
+                           Grid.Row="0"
+                           Content="Choose deadline (optional)"
+                           FontFamily="Font Awesome 5 Free Regular" FontWeight="Bold" Height="22" VerticalAlignment="Center" Foreground="#FF212121">
+                </Label>
+                <DatePicker x:Name="DueDatePicker"
+                                Grid.Row="1"
+                                BorderBrush="#FF212121" FontFamily="Segoe UI Black">
+                </DatePicker>
+            </Grid>
+            <Button x:Name="SaveButton"
+                        Margin="10"
+                        ToolTip="Click to save changes in entered or edited task" FontFamily="Font Awesome 5 Free Regular" Background="#FF212121" BorderBrush="#FF212121" Foreground="White" Click="SaveButton_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Grid x:Name="controlLayout">
+                            <Rectangle x:Name="buttonSurface" Fill="#212121" RadiusX="10" RadiusY="10" Height="25"></Rectangle>
+                            <Grid Width="100">
+                                <TextBlock HorizontalAlignment="Center" 
+                                           FontWeight="DemiBold"
+                                   VerticalAlignment="Center" 
+                                   Text="SAVE" RenderTransformOrigin="-0.249,0.486">
+                                </TextBlock>
+                            </Grid>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

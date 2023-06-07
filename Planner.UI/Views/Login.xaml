@@ -1,0 +1,73 @@
+﻿<Window x:Class="Planner.UI.Views.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Planner.UI.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800">
+    <Border BorderBrush="#111" BorderThickness="2" CornerRadius="20" Margin="230, 70, 230, 70">
+        <Grid HorizontalAlignment="Center" Width="256" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Margin="0, 0, 0, 10">
+                <Label Content="Welcome" Foreground="#111" FontSize="25" HorizontalAlignment="Center" />
+                <Separator Background="#111"></Separator>
+            </StackPanel>
+            <TextBox Grid.Row="1"
+                     x:Name="UserName"
+                     Margin="0, 0, 0, 15"
+                     Height="50"
+                     VerticalAlignment="Top"
+                     materialDesign:HintAssist.Hint="UserName"
+                     AcceptsReturn="True"
+                     IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}"
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto" />
+            <PasswordBox Grid.Row="2"
+                     x:Name="Password"
+                     Margin="0, 0, 0, 15"
+                     materialDesign:HintAssist.Hint="Password"
+                     materialDesign:TextFieldAssist.HasClearButton="True"
+                     IsEnabled="{Binding ElementName=RevealPasswordOutlinedEnabled, Path=IsChecked}"
+                     Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}" />
+            <Grid Width="100" Grid.Row="3">
+                <Button x:Name="LoginButton"
+                        Click="LoginButton_Click"
+                        Height="50"
+                        materialDesign:ButtonAssist.CornerRadius="25"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        Command="{Binding LoginCommand}" 
+                        Margin="-73,0,64,0">
+                    <TextBlock Text="Login" />
+                </Button>
+            </Grid>
+            <Grid Width="100" Grid.Row="3" Margin="128,50,28,-50">
+                <Button x:Name="RegisterButton"
+                        Click="RegisterButton_Click"
+                        Height="50"
+                        materialDesign:ButtonAssist.CornerRadius="25"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        Command="{Binding RegisterCommand}"
+                        Margin="17,-48,-26,48">
+                    <TextBlock Text="Register" />
+                </Button>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
