@@ -1,2 +1,8 @@
+.vs/
+
 Planner.Logic/bin/
 Planner.Logic/obj/
+Planner.Data/bin/
+Planner.Data/obj/
+Planner.Data/Migrations/
+Planner.Data/ClassDiagram1.cd
